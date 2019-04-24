@@ -1,0 +1,43 @@
+golang小程序应用
+golang：包下载地址;https://www.golangtc.com/download/package
+go添加自己写的模块：相对路径： import "./model" // 当前文件同一目录的 model 目录，但是不建议这种方式 import
+                                   绝对路径： import "shorturl/model" // 加载 GOPATH/src/shorturl/model 模块
+go导入包的三种方式：直接导入（调用时可直接调用包里的函数）；别名导入；下划线导入（只能引用包，使用init()初始化函数，不能调用包内其他函数）
+API： 是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。
+golang下“”“os”使用：参考文献：https://blog.csdn.net/chenbaoke/article/details/42494851
+golang下“”“bufio.NewReader”使用：参考文献：https://studygolang.com/articles/4367
+
+golang游戏小程序应用：
+ IPC： 进程间的通信机制（IPC），参考文献： 进程间的通信机制（IPC）（Linux系统）https://www.cnblogs.com/xingfuzzhd/archive/2013/11/18/3428807.html
+golang间数据转换：
+
+网络抓包工具： Wireshark
+参考文献：https://jingyan.baidu.com/article/b87fe19e7603b75218356825.html
+软件下载路劲 :https://www.wireshark.org/download.html
+
+go build 和 go install 
+参考文献：https://www.jianshu.com/p/88e407232631
+src 目录包含Go的源文件，它们被组织成包（每个目录都对应一个包），
+pkg 目录包含包对象，
+bin 目录包含可执行命令。
+NET包常用函数：
+func InterfaceAddrs() ([]Addr, error) //InterfaceAddrs返回该系统的网络接口的地址列表。
+func JoinHostPort(host, port string) string //JoinHostPort将host和port合并为一个网络地址。
+func LookupAddr(addr string) (name []string, err error) //对于给定的地址进行反向查找，并返回映射到那个地址的一个list列表
+func LookupHost(host string) (addrs []string, err error) //通过利用本地解析器对给定的host进行查找，返回主机地址的数组
+func Dial(network, address string) (Conn, error) //Dial 连接到指定address和name的网络
+
+在此之前先区分一下：printf，sprintf，fprintf。
+
+1，printf就是标准输出，在屏幕上打印出一段字符串来。
+2，sprintf就是把格式化的数据写入到某个字符串中。返回值字符串的长度。
+3，fprintf是用于文件操作。
+      原型：int fprintf(FILE *stream,char *format,[argument])；       
+      功能：fprintf()函数根据指定的format(格式)发送信息(参数)到由stream(流)指定的文件.因此fprintf()可以使得信息输出到指  定的文件。
+
+HTTPS加密：
+参考地址：https://www.cnblogs.com/littleatp/p/5878763.html、https://www.tuicool.com/articles/aymYbmM（详细点）
+openssl genrsa -out server.key 2048
+
+对称加密，就是通信双方使用一个密钥，该密钥既用于数据加密（发送方），也用于数据解密（接收方）。
+非对称加密，使用两个密钥。发送方使用公钥（公开密钥）对数据进行加密，数据接收方使用私钥对数据进行解密。 HTTPS服务端在连接建立过程（ssl shaking握手协议）中，会将自身的公钥发送给客户端。客户端拿到公钥后，与服务端协商数据传输通道的对称加密密钥-对话密钥，随后的这个协商过程则 是基于非对称加密的（因为这时客户端已经拿到了公钥，而服务端有私钥）。一旦双方协商出对话密钥，则后续的数据通讯就会一直使用基于该对话密 钥的对称加密算法了。
